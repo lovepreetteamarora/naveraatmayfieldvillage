@@ -15,7 +15,9 @@
     "domain": "naveraatmayfieldvillage.com",
     "preferredOrigin": "https://naveraatmayfieldvillage.com",
     "repository": "https://github.com/lovepreetteamarora/naveraatmayfieldvillage",
-    "existingSite": "https://naveraatmayfieldvillage.com"
+    "existingSite": "https://naveraatmayfieldvillage.com",
+    "alternateHost": "www.naveraatmayfieldvillage.com",
+    "alternateHostVerified": "2026-10-28: valid DNS configuration and TLS; 308 to apex; resolver propagation in progress"
   },
   "operator": {
     "team": "Team Arora",
@@ -91,8 +93,7 @@
     "Tenure",
     "Lot-specific availability and closing dates",
     "Exact entrance and sales office",
-    "Tax and rebate assumptions",
-    "www DNS record: Cloudflare sign-in required"
+    "Tax and rebate assumptions"
   ],
   "searchResearch": {
     "method": "Qualitative live search and primary builder content",

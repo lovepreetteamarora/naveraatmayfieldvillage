@@ -63,7 +63,7 @@ The production host must support `/api/register` and `/api/status` for online de
 
 `vercel.json` builds to `dist/` and exposes Node.js functions from `api/`. The local preview uses the same shared registration validator. Any other static host can serve `dist/`; requests for unknown routes should use `404.html` with HTTP 404.
 
-Production is live at **https://naveraatmayfieldvillage.com** on the existing Vercel project connected to `main`. The `www` alias and 308 redirect are configured in Vercel, but Cloudflare still needs a DNS-only `www` CNAME pointing to `7cd3356424d7fb5e.vercel-dns-017.com`. The available Cloudflare browser session requires sign-in. No domain purchase or Search Console configuration was performed.
+Production is live at **https://naveraatmayfieldvillage.com** on the existing Vercel project connected to `main`. The user added the Cloudflare `www` CNAME pointing to the apex. Vercel confirms the configuration is valid. HTTPS for `www` has a valid certificate and returns a 308 redirect to the main domain, which returns 200. Public DNS is visible through Cloudflare’s resolver; some resolver caches may still be updating. No domain purchase or Search Console configuration was performed.
 
 ## Verification
 
