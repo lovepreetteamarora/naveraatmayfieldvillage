@@ -2,7 +2,7 @@
 
 SEO-focused, responsive project website for **https://naveraatmayfieldvillage.com**, operated by Team Arora. Built from the supplied [DiGreen reference](https://digreenhomes.com/navera--lp) and checked October 28, 2026.
 
-The visual system uses the actual Navera identity and project imagery with navy, muted gold, warm ivory, serif display type and restrained interactions. Project content is delivered as complete static HTML; JavaScript adds mobile navigation, gallery enlargement and enquiry handling.
+The visual system uses the actual Navera identity and project imagery with DiGreen forest green and leaf green, a navy hero, muted gold, warm ivory, serif display type and restrained interactions. Project content is delivered as complete static HTML; JavaScript adds mobile navigation, gallery enlargement and enquiry handling.
 
 ## Preview and build
 
