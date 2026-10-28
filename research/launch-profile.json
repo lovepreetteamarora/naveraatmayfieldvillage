@@ -1,0 +1,31 @@
+{
+  "origin": "https://naveraatmayfieldvillage.com",
+  "canonicalOrigin": "https://naveraatmayfieldvillage.com",
+  "sitemapPath": "/sitemap.xml",
+  "maxPages": 20,
+  "concurrency": 3,
+  "timeoutMs": 20000,
+  "requireSchema": true,
+  "requireBreadcrumbs": true,
+  "requireSocialMetadata": true,
+  "requireUniqueTitles": true,
+  "requireUniqueDescriptions": true,
+  "checkLinks": true,
+  "maxLinks": 100,
+  "extraPaths": [
+    "/robots.txt",
+    "/api/status/"
+  ],
+  "expectedSchema": {
+    "/": [
+      "WebPage",
+      "Organization",
+      "WebSite"
+    ],
+    "/pricing/": [
+      "WebPage",
+      "BreadcrumbList"
+    ]
+  },
+  "queryChecks": []
+}

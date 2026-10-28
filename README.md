@@ -55,7 +55,7 @@ The shared Team Arora gateway is now registered for `navera-mayfield-village` an
 - `LEAD_API_TOKEN` — Navera's own token
 - `LEAD_IP_SALT`
 
-Use a local ignored `.env.local` for development, or environment variables in the hosting project. An empty `.env.example` is supplied. No token is exposed in public assets. `/api/status` returns only a boolean indicating whether all three values are configured; the browser then enables secure submission. Success requires a 201 response from the gateway. A labelled browser test saved a lead in the shared Supabase table with the correct project, domain, consent, hero form attribution and generated `is_realtor` value; the synthetic record was removed after verification. Production hosting secrets and deployment remain pending.
+Use a local ignored `.env.local` for development, or environment variables in the hosting project. An empty `.env.example` is supplied. No token is exposed in public assets. `/api/status` returns only a boolean indicating whether all three values are configured; the browser then enables secure submission. Success requires a 201 response from the gateway. A labelled browser test saved a lead in the shared Supabase table with the correct project, domain, consent, hero form attribution and generated `is_realtor` value; the synthetic record was removed after verification. Production secrets are configured and the main domain is live. A second labelled submission from the public domain was saved and independently verified in Supabase, then removed after verification.
 
 The production host must support `/api/register` and `/api/status` for online delivery. A purely static host retains the email-draft fallback. Do not replace it with a fake success state.
 
@@ -63,8 +63,8 @@ The production host must support `/api/register` and `/api/status` for online de
 
 `vercel.json` builds to `dist/` and exposes Node.js functions from `api/`. The local preview uses the same shared registration validator. Any other static host can serve `dist/`; requests for unknown routes should use `404.html` with HTTP 404.
 
-This task prepares the repository and local preview. No Vercel project, Cloudflare DNS, domain registration, live deployment or Search Console configuration was changed.
+Production is live at **https://naveraatmayfieldvillage.com** on the existing Vercel project connected to `main`. The `www` alias and 308 redirect are configured in Vercel, but Cloudflare still needs a DNS-only `www` CNAME pointing to `7cd3356424d7fb5e.vercel-dns-017.com`. The available Cloudflare browser session requires sign-in. No domain purchase or Search Console configuration was performed.
 
 ## Verification
 
-See `research/verification-2026-10-28.md` for build, API and browser evidence. Review screenshots are saved locally under ignored `artifacts/`. Source code is in `src/`, static styles/behavior in `public/`, server adapters in `api/`, and shared lead validation in `lib/`.
+See `research/verification-2026-10-28.md` for build/API evidence, `research/launch-2026-10-28.md` for production release evidence and `research/live-check-2026-10-28.json` for the public structural crawl. Review screenshots are saved locally under ignored `artifacts/`. Source code is in `src/`, static styles/behavior in `public/`, server adapters in `api/`, and shared lead validation in `lib/`.

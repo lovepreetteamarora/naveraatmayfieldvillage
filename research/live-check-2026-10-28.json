@@ -1,0 +1,125 @@
+{
+  "checkedAt": "2026-10-28T18:40:58.284Z",
+  "origin": "https://naveraatmayfieldvillage.com",
+  "canonicalOrigin": "https://naveraatmayfieldvillage.com",
+  "discoveredPages": 7,
+  "checkedPages": 7,
+  "checkedDestinations": 19,
+  "truncated": false,
+  "passed": true,
+  "issues": [],
+  "warnings": [],
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": "Navera at Mayfield Village | Detached Homes in Brampton",
+      "description": "Explore Navera at Mayfield Village by DiGreen Homes: 38 & 41 Series detached homes in Brampton, advertised from $999,999. Enquire with Team Arora.",
+      "canonical": "https://naveraatmayfieldvillage.com/",
+      "schema": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "Thing",
+        "ImageObject"
+      ]
+    },
+    {
+      "path": "/contact/",
+      "status": 200,
+      "title": "Enquire About Navera | Contact Team Arora",
+      "description": "Request current Navera pricing, floor plans and release information from Team Arora. Call 416-910-8923 or prepare a project enquiry by email.",
+      "canonical": "https://naveraatmayfieldvillage.com/contact/",
+      "schema": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "Thing",
+        "ImageObject",
+        "BreadcrumbList",
+        "ListItem"
+      ]
+    },
+    {
+      "path": "/floor-plans/",
+      "status": 200,
+      "title": "Navera Floor Plans | 38 & 41 Series Detached Homes",
+      "description": "Explore Navera’s 38 & 41 Series detached-home collections. Request current floor plans and learn what to compare before selecting a model in Brampton.",
+      "canonical": "https://naveraatmayfieldvillage.com/floor-plans/",
+      "schema": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "Thing",
+        "ImageObject",
+        "BreadcrumbList",
+        "ListItem"
+      ]
+    },
+    {
+      "path": "/gallery/",
+      "status": 200,
+      "title": "Navera Gallery | Community Aerial & Lifestyle Images",
+      "description": "View DiGreen’s Navera promotional imagery, including the full illustrative community aerial and lifestyle images. Clear captions distinguish concepts from photography.",
+      "canonical": "https://naveraatmayfieldvillage.com/gallery/",
+      "schema": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "Thing",
+        "ImageObject",
+        "BreadcrumbList",
+        "ListItem"
+      ]
+    },
+    {
+      "path": "/location/",
+      "status": 200,
+      "title": "Navera Location | Countryside & Torbram, Brampton",
+      "description": "Explore Navera’s Brampton setting at Countryside Drive and Torbram Road, with a community aerial, map links and resources for planning your area visit.",
+      "canonical": "https://naveraatmayfieldvillage.com/location/",
+      "schema": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "Thing",
+        "ImageObject",
+        "BreadcrumbList",
+        "ListItem"
+      ]
+    },
+    {
+      "path": "/pricing/",
+      "status": 200,
+      "title": "Navera Prices & Deposit Information | Mayfield Village",
+      "description": "Review Navera’s advertised starting price of $999,999, what is still to be confirmed, and questions to ask about deposits, premiums and availability.",
+      "canonical": "https://naveraatmayfieldvillage.com/pricing/",
+      "schema": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "Thing",
+        "ImageObject",
+        "BreadcrumbList",
+        "ListItem"
+      ]
+    },
+    {
+      "path": "/privacy/",
+      "status": 200,
+      "title": "Privacy & Enquiry Information | Navera — Team Arora",
+      "description": "Learn who operates this Navera information website, how email enquiries work, and how to contact Team Arora about your information.",
+      "canonical": "https://naveraatmayfieldvillage.com/privacy/",
+      "schema": [
+        "Organization",
+        "WebSite",
+        "WebPage",
+        "Thing",
+        "ImageObject",
+        "BreadcrumbList",
+        "ListItem"
+      ]
+    }
+  ],
+  "limitations": "Structural HTTP checks only; browser flows, source facts, CSS, media decoding, lead delivery, Google rich-result validation and indexing are separate."
+}
