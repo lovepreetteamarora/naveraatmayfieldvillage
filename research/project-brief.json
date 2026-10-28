@@ -67,16 +67,19 @@
     "Pricing research checklist",
     "Location guide",
     "Captioned gallery and lightbox",
-    "Email draft enquiry",
-    "Optional shared gateway integration",
-    "Sitemap and metadata"
+    "Sitemap and metadata",
+    "Compact hero form with explicit REALTOR choice",
+    "Shared gateway verified from local browser",
+    "Email draft fallback when hosting is unconfigured"
   ],
   "leadDestination": {
     "service": "Shared Team Arora capture-lead gateway",
-    "configured": false,
+    "configured": true,
     "fallback": "Visitor-reviewed email draft",
-    "deliveryVerified": false,
-    "mockTestsPassed": 10
+    "deliveryVerified": true,
+    "mockTestsPassed": 14,
+    "configuredScope": "Local preview only; production runtime settings pending",
+    "verification": "One labelled browser-to-Supabase test persisted with REALTOR answer; synthetic record removed"
   },
   "publicationAuthorization": {
     "scope": "Repository and local build; previous user authorized pushing this repository",
@@ -89,8 +92,8 @@
     "Lot-specific availability and closing dates",
     "Exact entrance and sales office",
     "Tax and rebate assumptions",
-    "Lead gateway activation",
-    "Production hosting and DNS"
+    "Production hosting and DNS",
+    "Production hosting lead-gateway secrets"
   ],
   "searchResearch": {
     "method": "Qualitative live search and primary builder content",

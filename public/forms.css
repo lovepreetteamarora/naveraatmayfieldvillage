@@ -1,0 +1,33 @@
+/* Shared lead form and compact hero placement. */
+.enquiry-form .form-heading{font-size:1.7rem;line-height:1.14;margin-bottom:16px}
+.realtor-choice{padding:0;margin:0 0 18px;border:0;min-width:0}
+.realtor-choice legend{font-size:.75rem;font-weight:600;margin-bottom:8px;line-height:1.5}
+.radio-options{display:flex;gap:12px}
+.enquiry-form .radio-options label{display:flex;align-items:center;gap:8px;margin:0;font-size:.8rem;padding:10px 16px;border:1px solid #bcc4b2;min-width:90px;min-height:44px;cursor:pointer;background:#fafaf5}
+.enquiry-form .radio-options input[type=radio]{display:inline-block;width:17px;height:17px;min-height:0;margin:0;padding:0;accent-color:var(--forest)}
+.radio-options label:has(input:checked){border-color:var(--forest);background:#e2e9d9}
+.form-operator{font-size:.67rem;line-height:1.6;color:#5d6754;margin-top:16px}
+.email-fallback{display:block;margin-top:12px;font-size:.8rem;font-weight:600;color:var(--forest)}
+.hero-inner{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:90px;min-height:760px;padding-block:48px}
+.hero-copy{max-width:610px}
+.hero h1{font-size:clamp(3rem,4.6vw,4.8rem)}
+.hero-actions{flex-wrap:wrap}
+.hero .hero-form{color:var(--ink);background:var(--cream);padding:29px 30px;box-shadow:0 16px 50px #07131b24;position:relative;z-index:1;align-self:center}
+.hero-form .eyebrow{color:#666d57;font-size:8px;margin-bottom:13px;letter-spacing:.14em}
+.hero-form .form-heading{font-size:1.95rem;margin-bottom:12px;letter-spacing:-.04em}
+.hero-form .form-intro{font-size:.72rem;line-height:1.6;margin-bottom:19px;color:#596454}
+.hero-form label{margin-bottom:12px}
+.hero-form input:not([type=checkbox]):not([type=radio]){min-height:44px;padding:10px 11px;margin-top:6px;font-size:.85rem}
+.hero-form .realtor-choice{margin-bottom:12px}
+.hero-form .check-label{font-size:.66rem;margin-top:16px;margin-bottom:14px}
+.hero-form .button{font-size:.79rem;gap:16px;padding:14px 17px;min-height:49px}
+.hero-form .form-operator{font-size:.64rem;margin-top:14px}
+.hero-form .form-status{font-size:.75rem}
+.hero-image{inset-inline-start:28%}
+.hero-image img{object-position:47% center}
+.hero-shade{background:linear-gradient(90deg,#0b2131 0%,#0b2131f0 30%,#0b213133 58%,#0b21311a 100%)}
+@media(min-width:1600px){.hero-inner{gap:100px}.hero-image{inset-inline-start:32%}}
+@media(max-width:1150px){.hero-inner{grid-template-columns:minmax(0,1fr) 350px;gap:38px}.hero .hero-form{padding:26px}.hero h1{font-size:3.5rem}.hero-actions{gap:20px}.hero-link{max-width:none}.hero .hero-condition{max-width:350px}}
+@media(max-width:900px){.hero-inner{grid-template-columns:minmax(0,1fr) 330px;gap:25px;padding-block:40px}.hero h1{font-size:2.9rem}.hero .hero-form{padding:23px}.hero-form .form-heading{font-size:1.7rem}.hero-form .check-label{font-size:.68rem}.hero-copy .eyebrow{font-size:8px;letter-spacing:.1em}.hero-price strong{font-size:2.25rem}.hero-actions>.button{font-size:.76rem;gap:14px;padding-inline:17px}}
+@media(max-width:740px){.hero-inner{grid-template-columns:1fr;gap:30px;padding-block:36px;min-height:0}.hero .hero-form{width:100%;max-width:520px;justify-self:center;padding:28px}.hero-copy{max-width:600px}.hero h1{font-size:clamp(2.75rem,7vw,3.8rem)}.hero-form .form-heading{font-size:2rem}.hero .hero-condition{max-width:none}.hero-actions{flex-direction:row}.hero-image{inset-inline-start:0}.hero-shade{background:#0b2131cc}.hero-form .form-intro{font-size:.78rem}.hero-form .check-label{font-size:.72rem}.hero-form .form-operator{font-size:.7rem}}
+@media(max-width:600px){.hero-inner{display:grid;grid-template-columns:1fr;width:calc(100% - 40px);padding-block:36px 30px;gap:30px}.hero .hero-form{padding:25px 22px;max-width:none}.hero-image{inset:auto}.hero-actions{flex-direction:column;gap:18px}.hero-form .form-heading{font-size:1.9rem}.hero-form .form-intro{font-size:.77rem}.hero-form .check-label{font-size:.72rem}.hero .hero-form .eyebrow{font-size:8px;margin-bottom:13px}.hero-form .button{font-size:.8rem}.enquiry-form .radio-options label{flex:1}.hero-form input:not([type=checkbox]):not([type=radio]){font-size:16px}.hero .hero-condition{font-size:11px}}

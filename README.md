@@ -45,15 +45,17 @@ The builder currently identifies 38 & 41 Series detached homes in Brampton at Co
 
 ## Enquiry delivery
 
-Without gateway configuration, the form **prepares an email draft** addressed to `parveen@teamarora.com`. The visitor reviews and sends it from their own email application. The website does not claim that preparing a draft delivered a lead.
+The homepage has a compact hero form with full name, email, phone, a required unselected REALTOR® Yes/No choice, and consent. The detailed contact form uses the same handling and a separate REALTOR® choice. The selected answer is saved in `details.isRealtor` and is visible in the shared table’s generated `is_realtor` column. Homepage enquiry links scroll to the hero form.
 
-The shared Team Arora gateway integration is included server-side and covered by tests. To activate it, register the existing Navera project (`navera-mayfield-village`) and this domain with the shared gateway, then supply:
+Without gateway configuration, either form **prepares an email draft** addressed to `parveen@teamarora.com`. The visitor reviews and sends it from their own email application. The website does not claim that preparing a draft delivered a lead.
+
+The shared Team Arora gateway is now registered for `navera-mayfield-village` and `naveraatmayfieldvillage.com`. The local preview uses a Navera-specific token in a private ignored `.env.local`. To activate direct submission on a production host, securely copy these server-only settings into that hosting project:
 
 - `LEAD_API_URL`
 - `LEAD_API_TOKEN` — Navera's own token
 - `LEAD_IP_SALT`
 
-Use a local ignored `.env.local` for development, or environment variables in the hosting project. An empty `.env.example` is supplied. No token is exposed in public assets. `/api/status` returns only a boolean indicating whether all three values are configured; the browser then enables secure submission. Success requires a 201 response from the gateway. No real test lead was sent. Database persistence remains unverified and inactive in this checkout.
+Use a local ignored `.env.local` for development, or environment variables in the hosting project. An empty `.env.example` is supplied. No token is exposed in public assets. `/api/status` returns only a boolean indicating whether all three values are configured; the browser then enables secure submission. Success requires a 201 response from the gateway. A labelled browser test saved a lead in the shared Supabase table with the correct project, domain, consent, hero form attribution and generated `is_realtor` value; the synthetic record was removed after verification. Production hosting secrets and deployment remain pending.
 
 The production host must support `/api/register` and `/api/status` for online delivery. A purely static host retains the email-draft fallback. Do not replace it with a fake success state.
 

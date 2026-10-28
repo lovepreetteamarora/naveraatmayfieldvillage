@@ -37,20 +37,27 @@ dialog?.addEventListener('click', event => {
 });
 dialog?.addEventListener('close', () => galleryOpener?.focus());
 
-const form = document.querySelector('#enquiry-form');
-if (form) {
+const forms = [...document.querySelectorAll('[data-lead-form]')];
+const deliveryReady = forms.length ? fetch('/api/status', { signal: AbortSignal.timeout(4000) })
+  .then(r => r.ok ? r.json() : null).then(result => result?.onlineDelivery === true).catch(() => false) : Promise.resolve(false);
+for (const form of forms) {
   let onlineDelivery = false;
-  const status = document.querySelector('#form-status');
-  const submit = document.querySelector('#submit-enquiry');
-  const fallback = document.querySelector('#email-fallback');
+  const status = form.querySelector('[data-form-status]');
+  const submit = form.querySelector('[data-submit-enquiry]');
+  const fallback = form.querySelector('[data-email-fallback]');
+  const compact = form.dataset.formName === 'hero';
+  const buttonLabel = compact ? 'Request pricing & floor plans' : 'Send enquiry';
   const query = new URLSearchParams(location.search).get('interest');
-  if ([...form.elements.interest.options].some(option => option.value === query)) form.elements.interest.value = query;
-  fetch('/api/status', { signal: AbortSignal.timeout(4000) }).then(r => r.ok ? r.json() : null).then(result => {
-    if (result?.onlineDelivery !== true) return;
-    onlineDelivery = true;
-    document.querySelector('#delivery-note').textContent = 'Your enquiry is sent securely to Team Arora. We will confirm here only after the enquiry has been saved.';
-    submit.innerHTML = 'Send enquiry <span aria-hidden="true">↗</span>';
-  }).catch(() => {});
+  const interest = form.elements.interest;
+  if (interest.tagName === 'SELECT' && [...interest.options].some(option => option.value === query)) interest.value = query;
+  deliveryReady.then(ready => {
+    onlineDelivery = ready;
+    if (!ready) return;
+    form.querySelector('[data-delivery-note]').textContent = compact
+      ? 'Request the latest available information from Team Arora.'
+      : 'Send your enquiry securely to Team Arora. We will confirm here after it has been saved.';
+    submit.innerHTML = `${buttonLabel} <span aria-hidden="true">↗</span>`;
+  });
   form.addEventListener('submit', async event => {
     event.preventDefault();
     if (!form.reportValidity() || submit.disabled) return;
@@ -65,11 +72,12 @@ if (form) {
     }
     const data = Object.fromEntries(d);
     data.consent = d.has('consent');
-    data.isRealtor = d.get('workingWithRealtor') === 'I am a REALTOR®' ? 'yes' : 'no';
-    data.heardAbout = 'Navera website';
+    data.formName = form.dataset.formName;
+    data.heardAbout = compact ? 'Navera hero form' : 'Navera contact page';
     data.smsConsent = false;
     data.pageUrl = location.href;
-    const body = `Navera at Mayfield Village enquiry\n\nName: ${data.firstName} ${data.lastName}\nEmail: ${data.email}\nPhone: ${data.phone}\nCollection: ${data.interest}\nWorking with a REALTOR: ${data.workingWithRealtor}\n\nMessage:\n${data.message || 'Please send current project information.'}\n\nContact permission: I agree to be contacted by Team Arora about this Navera enquiry.\nSource: ${location.origin}${location.pathname}`;
+    const displayName = data.fullName || `${data.firstName} ${data.lastName}`;
+    const body = `Navera at Mayfield Village enquiry\n\nName: ${displayName}\nEmail: ${data.email}\nPhone: ${data.phone}\nAre you a REALTOR: ${data.isRealtor}\nCollection: ${data.interest}\nWorking with a REALTOR: ${data.workingWithRealtor}\n\nMessage:\n${data.message || 'Please send current pricing and floor-plan information.'}\n\nContact permission: I agree to be contacted by Team Arora about this Navera enquiry.\nSource: ${location.origin}${location.pathname}`;
     fallback.href = `mailto:parveen@teamarora.com?subject=${encodeURIComponent('Navera at Mayfield Village enquiry')}&body=${encodeURIComponent(body)}`;
     status.classList.remove('error');
     if (!onlineDelivery) {
