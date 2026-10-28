@@ -1,0 +1,14 @@
+{
+  "name": "navera-at-mayfield-village",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "node scripts/build.mjs && node --env-file-if-exists=.env.local --watch scripts/server.mjs",
+    "build": "node scripts/build.mjs",
+    "start": "node --env-file-if-exists=.env.local scripts/server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node scripts/check.mjs"
+  }
+}

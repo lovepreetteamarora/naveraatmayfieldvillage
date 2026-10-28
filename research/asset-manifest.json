@@ -1,0 +1,119 @@
+[
+  {
+    "name": "aerial",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/Navera_aerial_High_Res_v3.png",
+    "dimensions": [
+      1294,
+      715
+    ],
+    "retrieved": "2026-10-27",
+    "webPath": "/assets/aerial.webp",
+    "sourceCheckedOn": "2026-10-28",
+    "publicReuseStatus": "Builder source imagery requested for reference-led project; no separate license grant verified",
+    "kind": "artist-concept"
+  },
+  {
+    "name": "family",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/happy_family_3.png",
+    "dimensions": [
+      1499,
+      891
+    ],
+    "retrieved": "2026-10-27",
+    "webPath": "/assets/family.webp",
+    "sourceCheckedOn": "2026-10-28",
+    "publicReuseStatus": "Builder source imagery requested for reference-led project; no separate license grant verified",
+    "kind": "promotional-lifestyle-or-area-image"
+  },
+  {
+    "name": "family-life",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/shutterstock_660426148.jpg",
+    "dimensions": [
+      1224,
+      888
+    ],
+    "retrieved": "2026-10-27",
+    "webPath": "/assets/family-life.webp",
+    "sourceCheckedOn": "2026-10-28",
+    "publicReuseStatus": "Builder source imagery requested for reference-led project; no separate license grant verified",
+    "kind": "promotional-lifestyle-or-area-image"
+  },
+  {
+    "name": "park",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/DSC_3782_copy.jpg",
+    "dimensions": [
+      717,
+      713
+    ],
+    "retrieved": "2026-10-27",
+    "webPath": "/assets/park.webp",
+    "sourceCheckedOn": "2026-10-28",
+    "publicReuseStatus": "Builder source imagery requested for reference-led project; no separate license grant verified",
+    "kind": "promotional-lifestyle-or-area-image"
+  },
+  {
+    "name": "neighbourhood",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/DSC_3835.jpg",
+    "dimensions": [
+      719,
+      713
+    ],
+    "retrieved": "2026-10-27",
+    "webPath": "/assets/neighbourhood.webp",
+    "sourceCheckedOn": "2026-10-28",
+    "publicReuseStatus": "Builder source imagery requested for reference-led project; no separate license grant verified",
+    "kind": "promotional-lifestyle-or-area-image"
+  },
+  {
+    "name": "community",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/DSC_3921.jpg",
+    "dimensions": [
+      719,
+      713
+    ],
+    "retrieved": "2026-10-27",
+    "webPath": "/assets/community.webp",
+    "sourceCheckedOn": "2026-10-28",
+    "publicReuseStatus": "Builder source imagery requested for reference-led project; no separate license grant verified",
+    "kind": "promotional-lifestyle-or-area-image"
+  },
+  {
+    "name": "trails",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/DSC_3790_copy.jpg",
+    "dimensions": [
+      717,
+      713
+    ],
+    "retrieved": "2026-10-27",
+    "webPath": "/assets/trails.webp",
+    "sourceCheckedOn": "2026-10-28",
+    "publicReuseStatus": "Builder source imagery requested for reference-led project; no separate license grant verified",
+    "kind": "promotional-lifestyle-or-area-image"
+  },
+  {
+    "name": "navera-logo",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/Navera_blk.png",
+    "dimensions": [
+      649,
+      165
+    ],
+    "retrieved": "2026-10-27",
+    "webPath": "/assets/navera-logo.webp",
+    "sourceCheckedOn": "2026-10-28",
+    "publicReuseStatus": "Builder source imagery requested for reference-led project; no separate license grant verified",
+    "kind": "brand-mark"
+  },
+  {
+    "name": "digreen-logo",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Website%20Content/Branding_DG_Colour.png",
+    "dimensions": [
+      896,
+      331
+    ],
+    "retrieved": "2026-10-27",
+    "webPath": "/assets/digreen-logo.webp",
+    "sourceCheckedOn": "2026-10-28",
+    "publicReuseStatus": "Builder source imagery requested for reference-led project; no separate license grant verified",
+    "kind": "brand-mark"
+  }
+]

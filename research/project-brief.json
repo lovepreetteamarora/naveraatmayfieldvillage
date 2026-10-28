@@ -1,0 +1,108 @@
+{
+  "status": "built-and-locally-verified",
+  "project": {
+    "name": "Navera at Mayfield Village",
+    "builder": "DiGreen Homes",
+    "city": "Brampton",
+    "province": "Ontario",
+    "tenure": null,
+    "homeTypes": [
+      "Detached homes"
+    ],
+    "releaseStatus": "Builder registration invitation; current launch date unconfirmed"
+  },
+  "website": {
+    "domain": "naveraatmayfieldvillage.com",
+    "preferredOrigin": "https://naveraatmayfieldvillage.com",
+    "repository": "https://github.com/lovepreetteamarora/naveraatmayfieldvillage",
+    "existingSite": null
+  },
+  "operator": {
+    "team": "Team Arora",
+    "publicPhone": "416-910-8923",
+    "publicEmail": "parveen@teamarora.com",
+    "independenceDisclosure": "Independent information website; enquiries go to Team Arora, not the builder."
+  },
+  "location": {
+    "projectReference": "Countryside Drive & Torbram Road, Brampton",
+    "verifiedEntrance": null,
+    "salesOffice": null,
+    "coordinates": null
+  },
+  "sources": [
+    {
+      "url": "https://digreenhomes.com/navera--lp",
+      "retrievedOn": "2026-10-28",
+      "publicationDate": null,
+      "localOriginal": "research/originals/builder-source-2026-10-28.html"
+    },
+    {
+      "url": "https://www.teamarora.com/",
+      "retrievedOn": "2026-10-28",
+      "purpose": "Verify public operator contact"
+    }
+  ],
+  "collections": [
+    "38 Series",
+    "41 Series"
+  ],
+  "models": [],
+  "priceBasis": {
+    "advertisedStartingPriceCAD": 999999,
+    "checkedOn": "2026-10-28",
+    "rebatesIncluded": null,
+    "taxesIncluded": null,
+    "incentivesIncluded": null,
+    "conditions": [
+      "Starting price only",
+      "Confirm model and lot-specific quote",
+      "Prices and specifications can change"
+    ]
+  },
+  "depositSchedules": [],
+  "lotExceptions": [],
+  "selectedFeatures": [
+    "Static HTML project pages",
+    "Collection information",
+    "Pricing research checklist",
+    "Location guide",
+    "Captioned gallery and lightbox",
+    "Email draft enquiry",
+    "Optional shared gateway integration",
+    "Sitemap and metadata"
+  ],
+  "leadDestination": {
+    "service": "Shared Team Arora capture-lead gateway",
+    "configured": false,
+    "fallback": "Visitor-reviewed email draft",
+    "deliveryVerified": false,
+    "mockTestsPassed": 10
+  },
+  "publicationAuthorization": {
+    "scope": "Repository and local build; previous user authorized pushing this repository",
+    "productionDeployment": false
+  },
+  "unresolved": [
+    "Individual models and plans",
+    "Deposit schedule",
+    "Tenure",
+    "Lot-specific availability and closing dates",
+    "Exact entrance and sales office",
+    "Tax and rebate assumptions",
+    "Lead gateway activation",
+    "Production hosting and DNS"
+  ],
+  "searchResearch": {
+    "method": "Qualitative live search and primary builder content",
+    "engine": "web search",
+    "checkedOn": "2026-10-28",
+    "queries": [
+      "Navera Mayfield Village DiGreen homes detached prices floor plans",
+      "site:teamarora.com contact Team Arora brokerage"
+    ],
+    "geography": "Brampton-focused queries; search localization not independently controlled",
+    "organicVsAds": "No paid metrics collected",
+    "volume": null,
+    "searchConsole": null
+  }
+}

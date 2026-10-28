@@ -1,0 +1,10 @@
+query,intent,preferred_route,evidence_type,source,checked_on,geography,volume,metric_period,unique_page_contribution
+Navera at Mayfield Village,project overview,/,builder name and qualitative live search,https://digreenhomes.com/navera--lp,2026-10-28,Brampton ON,unknown,unknown,Identity and verified overview
+Navera Brampton detached homes,project and home type,/,inferred combination from source,https://digreenhomes.com/navera--lp,2026-10-28,Brampton ON,unknown,unknown,Project and city context
+Navera prices,pricing,/pricing/,qualitative live search and inferred intent,https://digreenhomes.com/navera--lp,2026-10-28,Brampton ON,unknown,unknown,Dated advertised price and questions about full quote
+Navera floor plans,plans,/floor-plans/,builder registration intent,https://digreenhomes.com/navera--lp,2026-10-28,Brampton ON,unknown,unknown,Actual collection names and honest plan availability
+Navera 38 Series,collection,/floor-plans/#38-series,documented collection name,https://digreenhomes.com/navera--lp,2026-10-28,Brampton ON,unknown,unknown,Collection enquiry and comparison guidance
+Navera 41 Series,collection,/floor-plans/#41-series,documented collection name,https://digreenhomes.com/navera--lp,2026-10-28,Brampton ON,unknown,unknown,Collection enquiry and comparison guidance
+Navera location,map and neighbourhood,/location/,documented project intersection,https://digreenhomes.com/navera--lp,2026-10-28,Brampton ON,unknown,unknown,Community reference and primary local resources
+Navera photos,visual research,/gallery/,inferred media intent,https://digreenhomes.com/navera--lp,2026-10-28,Brampton ON,unknown,unknown,Full aerial and honestly captioned promotional images
+Navera Team Arora,contact,/contact/,operator and project intent,https://www.teamarora.com/,2026-10-28,Brampton ON,unknown,unknown,Real operator contact and explicit enquiry delivery

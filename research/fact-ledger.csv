@@ -1,0 +1,14 @@
+field,value,unit,collection,source,source_location,source_published_on,retrieved_on,conditions,status
+project_name,Navera at Mayfield Village,,,https://digreenhomes.com/navera--lp,Overview,unknown,2026-10-28,,verified
+builder,DiGreen Homes,,,https://digreenhomes.com/navera--lp,Builder site identity,unknown,2026-10-28,,verified
+city,Brampton,,,https://digreenhomes.com/navera--lp,Overview,unknown,2026-10-28,,verified
+community_reference,Countryside Drive & Torbram Road,,,https://digreenhomes.com/navera--lp,Location,unknown,2026-10-28,Intersection only; entrance and sales centre not confirmed,verified
+home_type,Detached homes,,,https://digreenhomes.com/navera--lp,Overview,unknown,2026-10-28,,verified
+collection,38 Series,,38 Series,https://digreenhomes.com/navera--lp,Overview,unknown,2026-10-28,Label does not establish exact dimensions,verified
+collection,41 Series,,41 Series,https://digreenhomes.com/navera--lp,Overview,unknown,2026-10-28,Label does not establish exact dimensions,verified
+advertised_starting_price,999999,CAD,,https://digreenhomes.com/navera--lp,Hero,unknown,2026-10-28,Starting figure only; taxes rebates premiums and availability not established,verified with conditions
+floor_plan_package,Not published on reviewed landing page,,,https://digreenhomes.com/navera--lp,Registration invitation,unknown,2026-10-28,No model names areas or bedroom counts inferred,unreleased on reviewed source
+deposit_schedule,Unknown,,,https://digreenhomes.com/navera--lp,No schedule found,unknown,2026-10-28,Do not invent milestones,unresolved
+closing_dates,Unknown,,,https://digreenhomes.com/navera--lp,No dates found,unknown,2026-10-28,Lot specific confirmation needed,unresolved
+public_phone,416-910-8923,,,https://www.teamarora.com/,Footer contact,unknown,2026-10-28,Team Arora not builder,verified
+public_email,parveen@teamarora.com,,,https://www.teamarora.com/,Header contact,unknown,2026-10-28,Team Arora not builder,verified
