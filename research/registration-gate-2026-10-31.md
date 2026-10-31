@@ -25,3 +25,7 @@ No test enquiry was submitted to the production lead gateway during local QA. Pr
 ## Release target
 
 Existing project `prj_GzHl29NHfBpceEczWJ62jy44YKo7`, team `team_DhGHz0cbsGPFaSbNpkPQJDvS`, public domain https://naveraatmayfieldvillage.com. Previous production deployment `dpl_BWhJwixmSzsUAQMQ1Ta8a3yj5hsV` at source `595711b`.
+
+## Staged release attempt
+
+CLI deployment `dpl_Fub4mQD1z6p4pwqWU8JebrHMgeMG` for source `a4546a9` was blocked before build with `TEAM_ACCESS_REQUIRED`: the commit author was not verified for CLI project deployments. No public domain was promoted. The existing GitHub integration is the next release path; no author identity, team membership or protection settings were changed.
