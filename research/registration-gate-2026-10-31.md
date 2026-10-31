@@ -29,3 +29,17 @@ Existing project `prj_GzHl29NHfBpceEczWJ62jy44YKo7`, team `team_DhGHz0cbsGPFaSbN
 ## Staged release attempt
 
 CLI deployment `dpl_Fub4mQD1z6p4pwqWU8JebrHMgeMG` for source `a4546a9` was blocked before build with `TEAM_ACCESS_REQUIRED`: the commit author was not verified for CLI project deployments. No public domain was promoted. The existing GitHub integration is the next release path; no author identity, team membership or protection settings were changed.
+
+## Public release verification
+
+The existing GitHub integration accepted commit `2138eac535fd8cdbb05f5035d7b6b974dbefec65` and built production deployment `dpl_FQwRnKyQUdsHqgBPESbXtFTk4KB5`. State was READY, and apex/www aliases were assigned. The CLI author verification issue did not affect the normal Git integration.
+
+- All seven public pages returned HTTP 200 with correct canonicals and one H1. The www floor-plan route returned 308 to the apex.
+- Live browser cards and registration dialogs worked on desktop and 390px mobile, with the correct requested material and Register & unlock button. The mobile dialog measured 352px without horizontal overflow.
+- `/api/status` returned `onlineDelivery: true`.
+- Anonymous access status was `unlocked: false`; full-image access returned 403. The previous public `/assets/aerial.webp` returned 404.
+- A temporary signed access-cookie fixture loaded the production full image: HTTP 200, image/webp, 217876 bytes, Cache-Control private/no-store. This proves function bundling and access verification, not a production lead save.
+- Live honeypot submission returned `leadAccepted: false` and no cookie. An incomplete submission returned 400 and no cookie. Neither path wrote a production lead.
+- Local 768px and 1024px homepage checks also had no horizontal overflow.
+
+Production screenshots are in ignored `artifacts/materials-live-*.png`. No successful synthetic enquiry was submitted to the production gateway. Production row persistence, Sheets, Zapier and Follow Up Boss delivery were not retested. The current production lead gateway was retained.
