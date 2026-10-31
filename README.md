@@ -71,10 +71,16 @@ See `research/verification-2026-10-28.md` for build/API evidence, `research/laun
 
 ## Registration gate for project materials
 
-The homepage and floor-plan page now show two registration cards with blurred previews and lock icons. The main community aerial on the homepage, location page and gallery is clear and freely viewable. Registration is limited to the smaller resource cards and collection requests. Clicking a card opens a native dialog that collects full name, email, mandatory phone, explicit REALTOR status and enquiry consent. The requested material and collection are saved through the existing lead gateway in `details` and in the enquiry message.
+The homepage and floor-plan page show six compact request cards: floor plans, price list and availability, site plan, deposit structure, features and finishes, and brochure and incentives. Each has a labelled illustrative preview and Register to request action. The main community aerial on the homepage, location page and gallery is clear and freely viewable. Registration is limited to the smaller resource cards and collection requests. Clicking a card opens a native dialog that collects full name, email, mandatory phone, explicit REALTOR status and enquiry consent. The requested material and collection are saved through the existing lead gateway in `details` and in the enquiry message.
 
 There are currently no floor-plan PDFs or lot-specific site-plan documents in this repository. The cards request those documents from Team Arora and explain that follow-up is required. The existing builder community aerial is an artist concept and requires no registration.
 
 The public aerial is available at `/assets/aerial.webp`. Only the smaller site-plan request card uses a blurred preview. A signed, HttpOnly, SameSite=Lax cookie remembers successful registration for 30 days; production cookies are Secure. The legacy `/api/materials` endpoint remains compatible with existing links and uses the original private source copy. No new hosting secrets or lead destinations are needed.
 
 This is a lead registration gate, not identity verification or digital rights management. The existing lead destination and delivery contract are retained. Local browser QA uses a separate test-only lead sink; it does not establish a newly saved production lead, Google Sheets delivery or downstream CRM delivery.
+
+## SEO copy and keyword mapping
+
+The October 31 SEO pass gives each existing page a distinct visible search subject: Navera’s new detached homes in Brampton, prices and deposits, floor plans, location and site plan, photos, registration, and privacy. H1/H2/H3 headings, body copy, link labels, page titles and descriptions use relevant terms naturally. Supporting content explains the builder, model-specific quotes, plan comparisons and the Mayfield Village neighbourhood without inventing release dates, bedroom counts, deposit amounts or promotions.
+
+`research/keyword-map.csv` maps 19 candidate phrases to existing routes and distinguishes measured broader phrases from inferred project-specific intents. `research/keyword-metrics-2026-10-31.json` retains the connected Google Ads search-volume output for Canada; missing volume is unknown. No ranking, traffic or indexing improvement is established by this copy change.

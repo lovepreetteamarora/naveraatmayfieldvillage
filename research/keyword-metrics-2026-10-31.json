@@ -1,0 +1,119 @@
+{
+  "checked_on": "2026-10-31",
+  "source": "DataForSEO Google Ads Search Volume Live",
+  "location": "Canada",
+  "language": "English",
+  "search_partners": false,
+  "period": "2025-10 through 2026-09",
+  "limitations": [
+    "Missing search_volume is unavailable data, not zero demand.",
+    "Google Ads competition is paid-ad competition, not organic keyword difficulty.",
+    "The connected API returned 10 items for 16 submitted phrases.",
+    "The API response did not include cost; the local cost log uses the USD 0.05 endpoint estimate."
+  ],
+  "id": "10311935-1989-0367-0000-8774b9ce56b5",
+  "status_code": 20000,
+  "status_message": "Ok.",
+  "items": [
+    {
+      "keyword": "navera at mayfield village",
+      "location_code": 2124
+    },
+    {
+      "keyword": "navera brampton",
+      "location_code": 2124
+    },
+    {
+      "keyword": "navera homes",
+      "location_code": 2124
+    },
+    {
+      "keyword": "navera floor plans",
+      "location_code": 2124
+    },
+    {
+      "keyword": "navera prices",
+      "location_code": 2124
+    },
+    {
+      "keyword": "navera price list",
+      "location_code": 2124
+    },
+    {
+      "keyword": "navera site plan",
+      "location_code": 2124
+    },
+    {
+      "keyword": "digreen homes brampton",
+      "location_code": 2124,
+      "competition": "HIGH",
+      "competition_index": 78,
+      "search_volume": 10,
+      "low_top_of_page_bid": 0.67,
+      "high_top_of_page_bid": 3.32,
+      "cpc": 1.2,
+      "monthly_searches": {
+        "2026-09": 10,
+        "2026-08": 10,
+        "2026-07": 10,
+        "2026-06": 10,
+        "2026-05": 10,
+        "2026-04": 10,
+        "2026-03": 10,
+        "2026-02": 10,
+        "2026-01": 10,
+        "2025-12": 10,
+        "2025-11": 10,
+        "2025-10": 10
+      }
+    },
+    {
+      "keyword": "new detached homes brampton",
+      "location_code": 2124,
+      "competition": "HIGH",
+      "competition_index": 70,
+      "search_volume": 40,
+      "low_top_of_page_bid": 0.74,
+      "high_top_of_page_bid": 2.45,
+      "cpc": 1.98,
+      "monthly_searches": {
+        "2026-09": 30,
+        "2026-08": 40,
+        "2026-07": 30,
+        "2026-06": 50,
+        "2026-05": 40,
+        "2026-04": 70,
+        "2026-03": 50,
+        "2026-02": 30,
+        "2026-01": 40,
+        "2025-12": 40,
+        "2025-11": 50,
+        "2025-10": 40
+      }
+    },
+    {
+      "keyword": "pre construction homes brampton",
+      "location_code": 2124,
+      "competition": "HIGH",
+      "competition_index": 82,
+      "search_volume": 260,
+      "low_top_of_page_bid": 0.89,
+      "high_top_of_page_bid": 3.52,
+      "cpc": 3.65,
+      "monthly_searches": {
+        "2026-09": 210,
+        "2026-08": 210,
+        "2026-07": 170,
+        "2026-06": 260,
+        "2026-05": 320,
+        "2026-04": 390,
+        "2026-03": 480,
+        "2026-02": 260,
+        "2026-01": 260,
+        "2025-12": 210,
+        "2025-11": 260,
+        "2025-10": 260
+      }
+    }
+  ]
+}

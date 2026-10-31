@@ -7,3 +7,5 @@ dist/
 artifacts/
 research/originals/
 .vercel
+
+.seo-cache/

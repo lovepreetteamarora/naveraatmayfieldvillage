@@ -3,12 +3,12 @@ import { project } from './project.mjs';
 export function leadForm({ compact = false, gate = false } = {}) {
   const short = compact || gate;
   const id = gate ? 'materials' : compact ? 'hero-enquiry' : 'enquiry-form';
-  const heading = gate ? 'Get the latest <br>Navera plans.' : compact ? 'Get Navera pricing <br>& floor plans.' : 'Request Navera information';
+  const heading = gate ? 'Request Navera <br>buyer information.' : compact ? 'Get Navera pricing <br>& floor plans.' : 'Request Navera prices & plans';
   return `<form id="${id}" class="enquiry-form${compact ? ' hero-form' : ''}" data-lead-form data-form-name="${gate ? 'materials' : compact ? 'hero' : 'contact'}" action="/api/register" method="post" aria-labelledby="${id}-heading">
     ${compact ? '<p class="eyebrow">YOUR NEXT HOME STARTS HERE</p>' : ''}
     <h2 id="${id}-heading" class="form-heading">${heading}</h2>
     <p class="form-intro" data-delivery-note>Prepare an email enquiry for Team Arora to review and send from your email app.</p>
-    ${gate ? '<p class="material-request-note">Request current floor plans or the latest site plan from Team Arora.</p><input type="hidden" name="requestedMaterial" value="floor-plans">' : ''}
+    ${gate ? '<p class="material-request-note">Request current Navera plans, pricing and builder information from Team Arora.</p><input type="hidden" name="requestedMaterial" value="floor-plans">' : ''}
     ${short ? '<label>Full name <span aria-hidden="true">*</span><input name="fullName" autocomplete="name" required maxlength="160" placeholder="Your name"></label>' : '<div class="form-grid"><label>First name <span aria-hidden="true">*</span><input name="firstName" autocomplete="given-name" required maxlength="80"></label><label>Last name <span aria-hidden="true">*</span><input name="lastName" autocomplete="family-name" required maxlength="80"></label></div>'}
     <label>Email address <span aria-hidden="true">*</span><input name="email" type="email" autocomplete="email" required maxlength="254"${compact ? ' placeholder="you@example.com"' : ''}></label>
     <label>Phone number <span aria-hidden="true">*</span><input name="phone" type="tel" autocomplete="tel" required minlength="10" maxlength="40"${compact ? ' placeholder="Your phone number"' : ''}></label>
@@ -19,7 +19,7 @@ export function leadForm({ compact = false, gate = false } = {}) {
     <button class="button" type="submit" data-submit-enquiry>Prepare email enquiry <span aria-hidden="true">↗</span></button>
     <p class="form-status" data-form-status role="status" aria-live="polite"></p>
     <a class="email-fallback" data-email-fallback hidden>Open your prepared email <span aria-hidden="true">↗</span></a>
-    <p class="form-operator">Enquiries handled by <strong>Team Arora</strong>.<br>Independent real estate information. No property reservation.</p>
+    <p class="form-operator">Enquiries handled by <strong>Team Arora</strong>. <br>Independent real estate information. No property reservation.</p>
     <noscript><p><a href="mailto:${project.email}?subject=Navera%20at%20Mayfield%20Village%20enquiry">Email Team Arora</a> or call <a href="tel:+14169108923">${project.phone}</a>. This form needs JavaScript.</p></noscript>
   </form>`;
 }

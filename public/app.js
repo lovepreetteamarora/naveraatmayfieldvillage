@@ -41,7 +41,8 @@ const materialsDialog = document.querySelector('#materials-dialog');
 const materialForm = document.querySelector('#materials');
 let materialAccess = false;
 let selectedMaterial = 'floor-plans';
-const materialLabels = { 'floor-plans': 'floor plans', 'site-plan': 'site plan' };
+const materialOptions = JSON.parse(document.querySelector('#material-options')?.textContent || '{}');
+const materialLabels = Object.fromEntries(Object.entries(materialOptions).map(([id, option]) => [id, option.label]));
 function rememberRegistration() {
   materialAccess = true;
 }
@@ -55,7 +56,8 @@ function showMaterialResult(justSaved = false, material = selectedMaterial) {
   result.querySelector('h2').textContent = justSaved ? 'Your request is received.' : 'You’re already registered.';
   result.querySelector('[data-material-result-message]').textContent = justSaved
     ? `Your ${materialLabels[material]} request has been saved. Team Arora will follow up with the latest available documents.`
-    : 'You have already registered in this browser. Contact Team Arora for current floor plans and the latest site plan.';
+    : `You have already registered in this browser. Contact Team Arora to request the latest ${materialLabels[material]}.`;
+  result.querySelector('.material-contact').href = `/contact/?interest=${encodeURIComponent(materialForm.elements.interest.value || 'Both collections')}&material=${encodeURIComponent(material)}`;
   if (materialsDialog.open) result.focus();
 }
 materialsDialog?.querySelectorAll('[data-close-materials]').forEach(button => button.addEventListener('click', () => materialsDialog.close()));
@@ -73,9 +75,7 @@ document.querySelectorAll('[data-material]').forEach(link => link.addEventListen
   materialsDialog.setAttribute('aria-labelledby', 'materials-heading');
   materialForm.elements.requestedMaterial.value = selectedMaterial;
   materialForm.elements.interest.value = link.dataset.interest || 'Both collections';
-  materialForm.querySelector('.material-request-note').textContent = selectedMaterial === 'floor-plans'
-    ? 'Request the current floor plans from Team Arora. Our team will follow up with the available plan package.'
-    : 'Request the latest site plan and lot information from Team Arora. Our team will follow up with the current documents.';
+  materialForm.querySelector('.material-request-note').textContent = materialOptions[selectedMaterial].note;
   materialForm.elements.fullName.focus();
 }));
 

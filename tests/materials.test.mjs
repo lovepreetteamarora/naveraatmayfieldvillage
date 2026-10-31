@@ -4,10 +4,28 @@ import { access } from 'node:fs/promises';
 import { materialCookie, hasMaterialAccess } from '../lib/material-access.js';
 import { materials } from '../lib/materials.js';
 import { register } from '../lib/registration.js';
+import { projectMaterials } from '../lib/project-materials.js';
 
 const env = { LEAD_API_URL: 'https://example.com/lead', LEAD_API_TOKEN: 'test', LEAD_IP_SALT: 'materials-test' };
 const enquiry = { fullName: 'TEST Materials', email: 'materials@example.com', phone: '4165550123', isRealtor: 'no', workingWithRealtor: 'Not provided', interest: '41 Series', heardAbout: 'Navera material registration', formName: 'materials', requestedMaterial: 'floor-plans', consent: true };
-const request = body => new Request('https://naveraatmayfieldvillage.com/api/register', { method: 'POST', headers: { origin: 'https://naveraatmayfieldvillage.com', 'content-type': 'application/json', 'cf-connecting-ip': '192.0.2.234' }, body: JSON.stringify(body) });
+const request = (body, ip = '192.0.2.234') => new Request('https://naveraatmayfieldvillage.com/api/register', { method: 'POST', headers: { origin: 'https://naveraatmayfieldvillage.com', 'content-type': 'application/json', 'cf-connecting-ip': ip }, body: JSON.stringify(body) });
+
+test('all six buyer-document requests retain the correct material in the saved enquiry', async () => {
+  for (const [index, material] of projectMaterials.entries()) {
+    let row;
+    const response = await register(request({ ...enquiry, requestedMaterial: material.id }, `192.0.2.${200 + index}`), env, async (_url, options) => {
+      row = JSON.parse(options.body);
+      return new Response(null, { status: 201 });
+    });
+    assert.equal(response.status, 200, material.id);
+    assert.equal((await response.json()).leadAccepted, true);
+    assert.equal(row.details.requestedMaterial, material.id);
+    assert.equal(row.details.interest, '41 Series');
+    assert.ok(row.message.includes(material.title));
+  }
+  const invalid = await register(request({ ...enquiry, requestedMaterial: 'unrecognised-document' }), env, () => { throw new Error('must not write'); });
+  assert.equal(invalid.status, 400);
+});
 
 test('material access is signed, expires and contains no contact details', () => {
   const now = 1793473200000;
@@ -28,7 +46,7 @@ test('a saved material enquiry retains collection and requested document before 
   assert.equal(row.details.formName, 'materials');
   assert.equal(row.details.requestedMaterial, 'floor-plans');
   assert.equal(row.details.interest, '41 Series');
-  assert.match(row.message, /Floor plans \(41 Series\)/);
+  assert.match(row.message, /Floor Plans \(41 Series\)/);
   assert.equal(hasMaterialAccess(response.headers.get('set-cookie'), env), true);
 });
 
