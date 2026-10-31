@@ -14,6 +14,7 @@ for (const page of pages) {
   for (const json of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)) JSON.parse(json[1]);
   for (const match of html.matchAll(/(?:href|src)="(\/[^"#?]*)(?:[?#][^"]*)?"/g)) {
     const path = match[1];
+    if (path === '/api/materials') { internalLinks++; continue; }
     const target = path.endsWith('/') ? path+'index.html' : path;
     await stat(new URL(target.slice(1),root)).catch(()=>assert.fail(`Broken link: ${page.path} -> ${path}`));
     internalLinks++;

@@ -31,3 +31,53 @@
 @media(max-width:900px){.hero-inner{grid-template-columns:minmax(0,1fr) 330px;gap:25px;padding-block:40px}.hero h1{font-size:2.9rem}.hero .hero-form{padding:23px}.hero-form .form-heading{font-size:1.7rem}.hero-form .check-label{font-size:.68rem}.hero-copy .eyebrow{font-size:8px;letter-spacing:.1em}.hero-price strong{font-size:2.25rem}.hero-actions>.button{font-size:.76rem;gap:14px;padding-inline:17px}}
 @media(max-width:740px){.hero-inner{grid-template-columns:1fr;gap:30px;padding-block:36px;min-height:0}.hero .hero-form{width:100%;max-width:520px;justify-self:center;padding:28px}.hero-copy{max-width:600px}.hero h1{font-size:clamp(2.75rem,7vw,3.8rem)}.hero-form .form-heading{font-size:2rem}.hero .hero-condition{max-width:none}.hero-actions{flex-direction:row}.hero-image{inset-inline-start:0}.hero-shade{background:#0b2131cc}.hero-form .form-intro{font-size:.78rem}.hero-form .check-label{font-size:.72rem}.hero-form .form-operator{font-size:.7rem}}
 @media(max-width:600px){.hero-inner{display:grid;grid-template-columns:1fr;width:calc(100% - 40px);padding-block:36px 30px;gap:30px}.hero .hero-form{padding:25px 22px;max-width:none}.hero-image{inset:auto}.hero-actions{flex-direction:column;gap:18px}.hero-form .form-heading{font-size:1.9rem}.hero-form .form-intro{font-size:.77rem}.hero-form .check-label{font-size:.72rem}.hero .hero-form .eyebrow{font-size:8px;margin-bottom:13px}.hero-form .button{font-size:.8rem}.enquiry-form .radio-options label{flex:1}.hero-form input:not([type=checkbox]):not([type=radio]){font-size:16px}.hero .hero-condition{font-size:11px}}
+
+/* Registration cards use the existing Navera palette and typography. */
+.material-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.material-card{overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#fff;min-width:0}
+.material-preview{position:relative;isolation:isolate;overflow:hidden;aspect-ratio:1.5;background:#e9ede9;border-bottom:1px solid var(--line)}
+.material-preview>img{width:100%;height:100%;object-fit:cover;filter:blur(5px);transform:scale(1.04);opacity:.8}
+.material-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-decoration:none;background:#ffffff2e;color:var(--forest)}
+.material-lock{display:grid;place-items:center;width:70px;height:70px;border-radius:50%;background:var(--forest);color:#fff;box-shadow:0 4px 16px #142a2520}
+.material-lock svg{width:26px;height:26px}
+.material-unlock-label{background:#fffffff5;border-radius:4px;padding:9px 15px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.material-overlay:hover .material-lock{background:var(--navy)}
+.material-overlay:focus-visible{outline:3px solid var(--gold);outline-offset:-5px}
+.material-documents{display:flex;gap:22px;justify-content:center;padding:30px;height:100%;filter:blur(4px);opacity:.65;transform:scale(1.02)}
+.material-documents>div{width:42%;background:#fff;padding:22px;text-align:center;border:1px solid #cbd4cb}
+.material-documents span{font-size:9px;letter-spacing:.2em;display:block}
+.material-documents strong{font:clamp(3rem,7vw,5.5rem) var(--serif);display:block;line-height:1.1}
+.material-documents em{font:1.2rem var(--serif)}
+.material-documents hr{border:0;border-top:1px solid #aeb9ad;margin:14px 0}
+.material-card-copy{padding:30px;display:flex;flex-direction:column;min-height:340px}
+.material-card-copy .eyebrow{font-size:9px;margin-bottom:15px;line-height:1.6}
+.material-card-copy h3{font-size:2.15rem;margin-bottom:18px;line-height:1.15}
+.material-card-copy>p:not(.eyebrow){font-size:.88rem;color:var(--muted);line-height:1.8}
+.material-card-copy>p.caption{font-size:.73rem;margin-bottom:22px}
+.material-card-copy .button{margin-top:auto;justify-content:space-between;width:100%;font-size:.8rem}
+.material-card-copy .button svg{width:18px;height:18px;flex-shrink:0}
+.material-preview.is-unlocked>img{filter:none;transform:none;opacity:1}
+.material-preview.is-unlocked .material-overlay{justify-content:end;align-items:end;padding:16px;background:transparent}
+.material-preview.is-unlocked .material-lock{display:none}
+.material-section .section-heading{margin-bottom:32px}
+.materials-dialog{padding:0;border:1px solid var(--line);border-radius:10px;width:min(520px,calc(100% - 28px));max-height:calc(100dvh - 32px);color:var(--ink);background:var(--cream);box-shadow:0 24px 90px #07131b55;overflow-y:auto}
+.materials-dialog::backdrop{background:#0b2131a6;overflow:hidden;overscroll-behavior:contain}
+.materials-dialog:modal{overscroll-behavior:contain}
+.material-close{display:block;margin:14px 17px 0 auto;background:transparent;border:0;padding:8px;font:600 .8rem var(--sans);cursor:pointer;min-height:44px;color:var(--ink)}
+.materials-dialog .enquiry-form{background:transparent;padding:8px 32px 28px}
+.materials-dialog .form-heading{font-size:2rem}
+.materials-dialog .form-intro{margin-bottom:12px}
+.material-request-note{font-size:.8rem;line-height:1.7;color:var(--muted);margin-bottom:20px}
+.material-result{padding:15px 32px 36px}
+.material-result h2{font-size:2.2rem;margin-bottom:20px}
+.material-result>p{font-size:.9rem;line-height:1.8}
+.material-result .caption{font-size:.75rem;margin-top:20px}
+.material-result .button{margin-top:16px;width:100%;justify-content:space-between}
+.material-result button.text-link{background:none;border:0;border-bottom:1px solid var(--line);padding:10px 0;cursor:pointer;margin-top:14px;font-family:inherit}
+.material-result .material-contact{display:block;margin-top:18px;font-size:.85rem}
+[hidden]{display:none!important}
+@media(max-width:600px){.material-cards{grid-template-columns:1fr;gap:24px}.material-card-copy{padding:25px;min-height:0}.material-card-copy h3{font-size:1.9rem}.material-card-copy .button{margin-top:5px}.material-lock{width:62px;height:62px}.material-unlock-label{font-size:.65rem}.material-documents{padding:24px;gap:15px}.material-documents>div{padding:12px}.material-documents strong{font-size:4rem}.materials-dialog .enquiry-form{padding:8px 22px 25px}.materials-dialog .form-heading{font-size:1.9rem}.materials-dialog input:not([type=checkbox]):not([type=radio]){font-size:16px}.material-result{padding:15px 22px 28px}}
+
+.button[data-material]>span:not([aria-hidden]){font:inherit;flex:1;text-align:left}
+.material-card-copy .button{background:#fff;color:var(--forest);border:1px solid #c2cabc;gap:12px}
+.material-card-copy .button:hover{background:var(--sage)}

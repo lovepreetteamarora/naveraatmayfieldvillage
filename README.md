@@ -68,3 +68,13 @@ Production is live at **https://naveraatmayfieldvillage.com** on the existing Ve
 ## Verification
 
 See `research/verification-2026-10-28.md` for build/API evidence, `research/launch-2026-10-28.md` for production release evidence and `research/live-check-2026-10-28.json` for the public structural crawl. Review screenshots are saved locally under ignored `artifacts/`. Source code is in `src/`, static styles/behavior in `public/`, server adapters in `api/`, and shared lead validation in `lib/`.
+
+## Registration gate for project materials
+
+The homepage and floor-plan page now show two registration cards with blurred previews and lock icons. Community images on the homepage, location page and gallery use the same gate. Clicking a card opens a native dialog that collects full name, email, mandatory phone, explicit REALTOR status and enquiry consent. The requested material and collection are saved through the existing lead gateway in `details` and in the enquiry message.
+
+There are currently no floor-plan PDFs or lot-specific site-plan documents in this repository. The cards request those documents from Team Arora and explain that follow-up is required. The existing builder community aerial is an artist concept, and becomes available immediately after a successfully saved enquiry.
+
+The full aerial lives in `private/aerial.webp`, outside the public build. Only a tiny blurred preview is public. `/api/materials?resource=community-aerial` checks a signed, HttpOnly, SameSite=Lax access cookie before serving the original with private/no-store caching. Production cookies are Secure and expire after 30 days. The signing key is derived from the existing server-only `LEAD_IP_SALT`; no new hosting secret is required. Vercel includes `private/**` only in the materials function bundle. The access cookie is issued after an accepted gateway save, including successful hero/contact enquiries. Rejected, honeypot and unavailable-backend submissions do not grant access.
+
+This is a lead registration gate, not identity verification or digital rights management. The existing lead destination and delivery contract are retained. Local browser QA uses a separate test-only lead sink; it does not establish a newly saved production lead, Google Sheets delivery or downstream CRM delivery.

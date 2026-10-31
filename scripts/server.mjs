@@ -4,6 +4,7 @@ import { resolve, extname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Readable } from 'node:stream';
 import { register } from '../lib/registration.js';
+import { materials } from '../lib/materials.js';
 const root = fileURLToPath(new URL('../dist/', import.meta.url));
 const port = Number(process.env.PORT || 4321);
 const origin = `http://localhost:${port}`;
@@ -13,6 +14,12 @@ const server = createServer(async (req,res) => {
   res.setHeader('Referrer-Policy','strict-origin-when-cross-origin');
   try {
     const url = new URL(req.url, origin);
+    if (url.pathname.replace(/\/$/,'') === '/api/materials') {
+      const response = await materials(new Request(url, { method: req.method, headers: { cookie: req.headers.cookie || '' } }), process.env);
+      res.writeHead(response.status, Object.fromEntries(response.headers));
+      res.end(Buffer.from(await response.arrayBuffer()));
+      return;
+    }
     if (url.pathname.replace(/\/$/,'') === '/api/status') {
       res.setHeader('Content-Type','application/json');
       res.setHeader('Cache-Control','no-store');

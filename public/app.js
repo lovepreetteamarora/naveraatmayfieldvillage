@@ -37,6 +37,55 @@ dialog?.addEventListener('click', event => {
 });
 dialog?.addEventListener('close', () => galleryOpener?.focus());
 
+const materialsDialog = document.querySelector('#materials-dialog');
+const materialForm = document.querySelector('#materials');
+let materialAccess = false;
+let selectedMaterial = 'floor-plans';
+const materialLabels = { 'floor-plans': 'floor plans', 'site-plan': 'site plan' };
+function unlockCommunity() {
+  materialAccess = true;
+  document.querySelectorAll('[data-community-preview]').forEach(preview => {
+    preview.classList.add('is-unlocked');
+    const img = preview.querySelector('img');
+    img.src = '/api/materials?resource=community-aerial';
+    img.alt = 'DiGreen Homes illustrative aerial of the Navera community';
+    preview.querySelector('.material-unlock-label').textContent = 'View community image';
+  });
+}
+const accessReady = fetch('/api/materials', { signal: AbortSignal.timeout(4000) })
+  .then(r => r.ok ? r.json() : null).then(result => { if (result?.unlocked === true) unlockCommunity(); }).catch(() => {});
+function showMaterialResult(justSaved = false, material = selectedMaterial) {
+  materialsDialog.querySelector('[data-material-registration]').hidden = true;
+  const result = materialsDialog.querySelector('[data-material-result]');
+  result.hidden = false;
+  materialsDialog.setAttribute('aria-labelledby', 'materials-result-heading');
+  result.querySelector('h2').textContent = justSaved ? 'Your request is received.' : 'Your community access is ready.';
+  result.querySelector('[data-material-result-message]').textContent = justSaved
+    ? `Your ${materialLabels[material]} request has been saved. Team Arora will follow up with the latest available documents. You can view the community image now.`
+    : 'You have already registered in this browser. View the community image below, or contact Team Arora to request current floor plans and the latest site plan.';
+  if (materialsDialog.open) result.focus();
+}
+materialsDialog?.querySelectorAll('[data-close-materials]').forEach(button => button.addEventListener('click', () => materialsDialog.close()));
+document.querySelectorAll('[data-material]').forEach(link => link.addEventListener('click', async event => {
+  if (!materialsDialog?.showModal) return;
+  event.preventDefault();
+  selectedMaterial = link.dataset.material;
+  // Open synchronously so native focus restoration retains the clicked control.
+  materialsDialog.showModal();
+  await accessReady;
+  if (!materialsDialog.open) return;
+  if (materialAccess) { showMaterialResult(); return; }
+  materialsDialog.querySelector('[data-material-registration]').hidden = false;
+  materialsDialog.querySelector('[data-material-result]').hidden = true;
+  materialsDialog.setAttribute('aria-labelledby', 'materials-heading');
+  materialForm.elements.requestedMaterial.value = selectedMaterial;
+  materialForm.elements.interest.value = link.dataset.interest || 'Both collections';
+  materialForm.querySelector('.material-request-note').textContent = selectedMaterial === 'floor-plans'
+    ? 'Request the current floor plans from Team Arora and unlock the community image. Our team will follow up with the available plan package.'
+    : 'Unlock the full community image and request the latest site plan from Team Arora. The image is a builder’s artist concept.';
+  materialForm.elements.fullName.focus();
+}));
+
 const forms = [...document.querySelectorAll('[data-lead-form]')];
 const deliveryReady = forms.length ? fetch('/api/status', { signal: AbortSignal.timeout(4000) })
   .then(r => r.ok ? r.json() : null).then(result => result?.onlineDelivery === true).catch(() => false) : Promise.resolve(false);
@@ -45,11 +94,14 @@ for (const form of forms) {
   const status = form.querySelector('[data-form-status]');
   const submit = form.querySelector('[data-submit-enquiry]');
   const fallback = form.querySelector('[data-email-fallback]');
-  const compact = form.dataset.formName === 'hero';
-  const buttonLabel = compact ? 'Request pricing & floor plans' : 'Send enquiry';
+  const compact = ['hero','materials'].includes(form.dataset.formName);
+  const gated = form.dataset.formName === 'materials';
+  const buttonLabel = gated ? 'Register & unlock' : compact ? 'Request pricing & floor plans' : 'Send enquiry';
   const query = new URLSearchParams(location.search).get('interest');
   const interest = form.elements.interest;
-  if (interest.tagName === 'SELECT' && [...interest.options].some(option => option.value === query)) interest.value = query;
+  if (interest?.tagName === 'SELECT' && [...interest.options].some(option => option.value === query)) interest.value = query;
+  const requestedMaterial = new URLSearchParams(location.search).get('material');
+  if (!compact && materialLabels[requestedMaterial]) form.elements.message.value = `Please send the latest ${materialLabels[requestedMaterial]}.`;
   deliveryReady.then(ready => {
     onlineDelivery = ready;
     if (!ready) return;
@@ -73,13 +125,16 @@ for (const form of forms) {
     const data = Object.fromEntries(d);
     data.consent = d.has('consent');
     data.formName = form.dataset.formName;
-    data.heardAbout = compact ? 'Navera hero form' : 'Navera contact page';
+    data.heardAbout = gated ? 'Navera material registration' : compact ? 'Navera hero form' : 'Navera contact page';
+    if (gated) data.message = `Please send current ${materialLabels[data.requestedMaterial]} for ${data.interest}.`;
     data.smsConsent = false;
     data.pageUrl = location.href;
     const displayName = data.fullName || `${data.firstName} ${data.lastName}`;
     const body = `Navera at Mayfield Village enquiry\n\nName: ${displayName}\nEmail: ${data.email}\nPhone: ${data.phone}\nAre you a REALTOR: ${data.isRealtor}\nCollection: ${data.interest}\nWorking with a REALTOR: ${data.workingWithRealtor}\n\nMessage:\n${data.message || 'Please send current pricing and floor-plan information.'}\n\nContact permission: I agree to be contacted by Team Arora about this Navera enquiry.\nSource: ${location.origin}${location.pathname}`;
     fallback.href = `mailto:parveen@teamarora.com?subject=${encodeURIComponent('Navera at Mayfield Village enquiry')}&body=${encodeURIComponent(body)}`;
     status.classList.remove('error');
+    onlineDelivery = await deliveryReady;
+    if (submit.disabled) return;
     if (!onlineDelivery) {
       fallback.hidden = false;
       status.textContent = 'Your email draft is ready. Open it below, review the details, and send it from your email app. No enquiry has been sent by this website.';
@@ -93,6 +148,8 @@ for (const form of forms) {
       const response = await fetch('/api/register', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data), signal:AbortSignal.timeout(15000) });
       const result = await response.json();
       if (!response.ok || result.leadAccepted !== true) throw new Error(result.error || 'We could not save your enquiry. Please try again or contact Team Arora by email.');
+      unlockCommunity();
+      if (gated) showMaterialResult(true, data.requestedMaterial);
       status.textContent = result.message;
       form.reset();
       submit.textContent = 'Enquiry received';
