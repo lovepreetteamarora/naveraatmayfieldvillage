@@ -42,27 +42,20 @@ const materialForm = document.querySelector('#materials');
 let materialAccess = false;
 let selectedMaterial = 'floor-plans';
 const materialLabels = { 'floor-plans': 'floor plans', 'site-plan': 'site plan' };
-function unlockCommunity() {
+function rememberRegistration() {
   materialAccess = true;
-  document.querySelectorAll('[data-community-preview]').forEach(preview => {
-    preview.classList.add('is-unlocked');
-    const img = preview.querySelector('img');
-    img.src = '/api/materials?resource=community-aerial';
-    img.alt = 'DiGreen Homes illustrative aerial of the Navera community';
-    preview.querySelector('.material-unlock-label').textContent = 'View community image';
-  });
 }
 const accessReady = fetch('/api/materials', { signal: AbortSignal.timeout(4000) })
-  .then(r => r.ok ? r.json() : null).then(result => { if (result?.unlocked === true) unlockCommunity(); }).catch(() => {});
+  .then(r => r.ok ? r.json() : null).then(result => { if (result?.unlocked === true) rememberRegistration(); }).catch(() => {});
 function showMaterialResult(justSaved = false, material = selectedMaterial) {
   materialsDialog.querySelector('[data-material-registration]').hidden = true;
   const result = materialsDialog.querySelector('[data-material-result]');
   result.hidden = false;
   materialsDialog.setAttribute('aria-labelledby', 'materials-result-heading');
-  result.querySelector('h2').textContent = justSaved ? 'Your request is received.' : 'Your community access is ready.';
+  result.querySelector('h2').textContent = justSaved ? 'Your request is received.' : 'You’re already registered.';
   result.querySelector('[data-material-result-message]').textContent = justSaved
-    ? `Your ${materialLabels[material]} request has been saved. Team Arora will follow up with the latest available documents. You can view the community image now.`
-    : 'You have already registered in this browser. View the community image below, or contact Team Arora to request current floor plans and the latest site plan.';
+    ? `Your ${materialLabels[material]} request has been saved. Team Arora will follow up with the latest available documents.`
+    : 'You have already registered in this browser. Contact Team Arora for current floor plans and the latest site plan.';
   if (materialsDialog.open) result.focus();
 }
 materialsDialog?.querySelectorAll('[data-close-materials]').forEach(button => button.addEventListener('click', () => materialsDialog.close()));
@@ -81,8 +74,8 @@ document.querySelectorAll('[data-material]').forEach(link => link.addEventListen
   materialForm.elements.requestedMaterial.value = selectedMaterial;
   materialForm.elements.interest.value = link.dataset.interest || 'Both collections';
   materialForm.querySelector('.material-request-note').textContent = selectedMaterial === 'floor-plans'
-    ? 'Request the current floor plans from Team Arora and unlock the community image. Our team will follow up with the available plan package.'
-    : 'Unlock the full community image and request the latest site plan from Team Arora. The image is a builder’s artist concept.';
+    ? 'Request the current floor plans from Team Arora. Our team will follow up with the available plan package.'
+    : 'Request the latest site plan and lot information from Team Arora. Our team will follow up with the current documents.';
   materialForm.elements.fullName.focus();
 }));
 
@@ -96,7 +89,7 @@ for (const form of forms) {
   const fallback = form.querySelector('[data-email-fallback]');
   const compact = ['hero','materials'].includes(form.dataset.formName);
   const gated = form.dataset.formName === 'materials';
-  const buttonLabel = gated ? 'Register & unlock' : compact ? 'Request pricing & floor plans' : 'Send enquiry';
+  const buttonLabel = gated ? 'Send my request' : compact ? 'Request pricing & floor plans' : 'Send enquiry';
   const query = new URLSearchParams(location.search).get('interest');
   const interest = form.elements.interest;
   if (interest?.tagName === 'SELECT' && [...interest.options].some(option => option.value === query)) interest.value = query;
@@ -148,7 +141,7 @@ for (const form of forms) {
       const response = await fetch('/api/register', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data), signal:AbortSignal.timeout(15000) });
       const result = await response.json();
       if (!response.ok || result.leadAccepted !== true) throw new Error(result.error || 'We could not save your enquiry. Please try again or contact Team Arora by email.');
-      unlockCommunity();
+      rememberRegistration();
       if (gated) showMaterialResult(true, data.requestedMaterial);
       status.textContent = result.message;
       form.reset();

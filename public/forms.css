@@ -56,9 +56,6 @@
 .material-card-copy>p.caption{font-size:.73rem;margin-bottom:22px}
 .material-card-copy .button{margin-top:auto;justify-content:space-between;width:100%;font-size:.8rem}
 .material-card-copy .button svg{width:18px;height:18px;flex-shrink:0}
-.material-preview.is-unlocked>img{filter:none;transform:none;opacity:1}
-.material-preview.is-unlocked .material-overlay{justify-content:end;align-items:end;padding:16px;background:transparent}
-.material-preview.is-unlocked .material-lock{display:none}
 .material-section .section-heading{margin-bottom:32px}
 .materials-dialog{padding:0;border:1px solid var(--line);border-radius:10px;width:min(520px,calc(100% - 28px));max-height:calc(100dvh - 32px);color:var(--ink);background:var(--cream);box-shadow:0 24px 90px #07131b55;overflow-y:auto}
 .materials-dialog::backdrop{background:#0b2131a6;overflow:hidden;overscroll-behavior:contain}
@@ -81,3 +78,6 @@
 .button[data-material]>span:not([aria-hidden]){font:inherit;flex:1;text-align:left}
 .material-card-copy .button{background:#fff;color:var(--forest);border:1px solid #c2cabc;gap:12px}
 .material-card-copy .button:hover{background:var(--sage)}
+
+/* Keep the public community aerial clear and comfortably sized. */
+.community-visual figure,.community-visual>.caption{max-width:960px;margin-inline:auto}

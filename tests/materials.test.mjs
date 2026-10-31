@@ -1,8 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { access } from 'node:fs/promises';
-import { pages } from '../src/pages.mjs';
-import { layout } from '../src/components.mjs';
 import { materialCookie, hasMaterialAccess } from '../lib/material-access.js';
 import { materials } from '../lib/materials.js';
 import { register } from '../lib/registration.js';
@@ -42,7 +40,7 @@ test('invalid, honeypot and failed saves never issue material access', async () 
   }
 });
 
-test('full image is private, cannot be read without registration and is never cached publicly', async () => {
+test('legacy material endpoint still requires signed access and never caches publicly', async () => {
   const url = 'https://naveraatmayfieldvillage.com/api/materials?resource=community-aerial';
   assert.equal((await materials(new Request(url), env)).status, 403);
   const response = await materials(new Request(url, { headers: { cookie: materialCookie(env) } }), env);
@@ -54,7 +52,5 @@ test('full image is private, cannot be read without registration and is never ca
   assert.ok((await response.arrayBuffer()).byteLength > 200000);
   const unknown = await materials(new Request(url.replace('community-aerial', '../private/aerial.webp'), { headers: { cookie: materialCookie(env) } }), env);
   assert.equal(unknown.status, 404);
-  await assert.rejects(access(new URL('../public/assets/aerial.webp', import.meta.url)));
-  const html = layout(pages.find(page => page.path === '/floor-plans/'));
-  assert.doesNotMatch(html, /\/assets\/aerial\.webp/);
+  await access(new URL('../public/assets/aerial.webp', import.meta.url));
 });

@@ -3,12 +3,12 @@ import { project } from './project.mjs';
 export function leadForm({ compact = false, gate = false } = {}) {
   const short = compact || gate;
   const id = gate ? 'materials' : compact ? 'hero-enquiry' : 'enquiry-form';
-  const heading = gate ? 'Unlock a closer look <br>at Navera.' : compact ? 'Get Navera pricing <br>& floor plans.' : 'Request Navera information';
+  const heading = gate ? 'Get the latest <br>Navera plans.' : compact ? 'Get Navera pricing <br>& floor plans.' : 'Request Navera information';
   return `<form id="${id}" class="enquiry-form${compact ? ' hero-form' : ''}" data-lead-form data-form-name="${gate ? 'materials' : compact ? 'hero' : 'contact'}" action="/api/register" method="post" aria-labelledby="${id}-heading">
     ${compact ? '<p class="eyebrow">YOUR NEXT HOME STARTS HERE</p>' : ''}
     <h2 id="${id}-heading" class="form-heading">${heading}</h2>
     <p class="form-intro" data-delivery-note>Prepare an email enquiry for Team Arora to review and send from your email app.</p>
-    ${gate ? '<p class="material-request-note">Register to view the community image and request current floor plans or the latest site plan from Team Arora.</p><input type="hidden" name="requestedMaterial" value="floor-plans">' : ''}
+    ${gate ? '<p class="material-request-note">Request current floor plans or the latest site plan from Team Arora.</p><input type="hidden" name="requestedMaterial" value="floor-plans">' : ''}
     ${short ? '<label>Full name <span aria-hidden="true">*</span><input name="fullName" autocomplete="name" required maxlength="160" placeholder="Your name"></label>' : '<div class="form-grid"><label>First name <span aria-hidden="true">*</span><input name="firstName" autocomplete="given-name" required maxlength="80"></label><label>Last name <span aria-hidden="true">*</span><input name="lastName" autocomplete="family-name" required maxlength="80"></label></div>'}
     <label>Email address <span aria-hidden="true">*</span><input name="email" type="email" autocomplete="email" required maxlength="254"${compact ? ' placeholder="you@example.com"' : ''}></label>
     <label>Phone number <span aria-hidden="true">*</span><input name="phone" type="tel" autocomplete="tel" required minlength="10" maxlength="40"${compact ? ' placeholder="Your phone number"' : ''}></label>

@@ -43,3 +43,13 @@ The existing GitHub integration accepted commit `2138eac535fd8cdbb05f5035d7b6b97
 - Local 768px and 1024px homepage checks also had no horizontal overflow.
 
 Production screenshots are in ignored `artifacts/materials-live-*.png`. No successful synthetic enquiry was submitted to the production gateway. Production row persistence, Sheets, Zapier and Follow Up Boss delivery were not retested. The current production lead gateway was retained.
+
+## User correction: public community aerial
+
+The user rejected the large blurred aerial and requested that this image have no lock. This supersedes the earlier decision to gate the main community imagery.
+
+- Restored the clear public aerial on the homepage, location page and gallery, including ordinary full-image viewing.
+- Capped the homepage/location figure at 960px rather than the previous 1280px-wide gated preview. The local desktop image measured 960 by 530px; mobile measured 350px wide with document width 390px. Computed image filter was none, and the main image section contained zero material/lock controls.
+- Registration remains in the smaller resource cards and collection-plan request buttons. Text now describes requests for current floor plans/site plans rather than unlocking the public aerial.
+- Retained the current lead gateway and legacy signed material endpoint for existing links. Restored the public image to the image sitemap and versioned CSS/JS URLs to update returning browsers.
+- Build, 18 automated tests, the eight-page structural check and diff whitespace checks passed. Screenshots are in ignored artifacts/clear-aerial-*.png. No production enquiry was submitted.
